@@ -23,7 +23,7 @@ for tbl in eachrow(tbls_incl)
         println("Loading $fullpath...")
         @time begin
             try
-                execute(db, "COPY $(tbl.table_id)_$(tbl.name) FROM '$fullpath' WITH (FORMAT CSV, HEADER MATCH);")
+                execute(db, "COPY $(tbl.table_id)_$(tbl.name) FROM '$fullpath' WITH (FORMAT CSV, HEADER true);")
             catch e
                 showerror(stderr, e)
                 println(stderr)
