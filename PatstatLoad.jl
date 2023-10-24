@@ -23,6 +23,9 @@ for tbl in eachrow(tbls_incl)
         println("Loading $fullpath...")
         @time begin
             try
+                # Gio's Note: This raises error
+                # https://www.postgresql.org/docs/current/sql-copy.html
+                # execute(db, "COPY $(tbl.table_id)_$(tbl.name) FROM '$fullpath' WITH (FORMAT CSV, HEADER MATCH);")
                 execute(db, "COPY $(tbl.table_id)_$(tbl.name) FROM '$fullpath' WITH (FORMAT CSV, HEADER true);")
             catch e
                 showerror(stderr, e)

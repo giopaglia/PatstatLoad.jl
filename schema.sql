@@ -123,14 +123,15 @@ CREATE TABLE tls212_citation (
   cited_pat_publn_id int DEFAULT ('0'),
   cited_appln_id int DEFAULT ('0'),
   pat_citn_seq_nr smallint DEFAULT ('0'),
-  cited_npl_publn_id int DEFAULT ('0'),
+  cited_npl_publn_id varchar(32) DEFAULT (''),
   npl_citn_seq_nr smallint DEFAULT ('0'),
   citn_gener_auth char(2) DEFAULT (''),
   PRIMARY KEY (pat_publn_id, citn_replenished, citn_id)
 );
 
 CREATE TABLE tls214_npl_publn (
-  npl_publn_id int NOT NULL DEFAULT ('0'),
+  npl_publn_id varchar(32) NOT NULL DEFAULT (''),
+  xp_nr int NOT NULL DEFAULT ('0'),
   npl_type char(1) DEFAULT (''),
   npl_biblio text DEFAULT (''),
   npl_author varchar(1000) DEFAULT (''),
@@ -158,7 +159,7 @@ CREATE TABLE tls215_citn_categ (
   pat_publn_id int NOT NULL DEFAULT ('0'),
   citn_replenished int NOT NULL DEFAULT ('0'),
   citn_id smallint NOT NULL DEFAULT ('0'),
-  citn_categ char(10) NOT NULL DEFAULT (''),
+  citn_categ varchar(10) NOT NULL DEFAULT (''),
   relevant_claim smallint NOT NULL DEFAULT ('0'),
   PRIMARY KEY (
     pat_publn_id,
@@ -185,18 +186,13 @@ CREATE TABLE tls222_appln_jp_class (
 
 CREATE TABLE tls223_appln_docus (
   appln_id int NOT NULL DEFAULT ('0'),
-  docus_class_symbol varchar(15) NOT NULL DEFAULT (''),
+  docus_class_symbol varchar(50) NOT NULL DEFAULT (''),
   PRIMARY KEY (appln_id, docus_class_symbol)
 );
 
 CREATE TABLE tls224_appln_cpc (
   appln_id int NOT NULL DEFAULT ('0'),
   cpc_class_symbol varchar(19) NOT NULL DEFAULT (''),
-  -- cpc_scheme varchar(5) NOT NULL DEFAULT (''),
-  -- cpc_version date DEFAULT ('9999-12-31'),
-  -- cpc_value char(1) DEFAULT (''),
-  -- cpc_position char(1) DEFAULT (''),
-  -- cpc_gener_auth char(2) DEFAULT (''),
   PRIMARY KEY (appln_id, cpc_class_symbol)
 );
 
