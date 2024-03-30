@@ -5,7 +5,7 @@ CREATE TABLE tls201_appln (
   appln_kind char(2) DEFAULT ('  '),
   appln_filing_date date DEFAULT ('9999-12-31'),
   appln_filing_year smallint DEFAULT '9999',
-  appln_nr_epodoc varchar(20) DEFAULT (''),
+  --appln_nr_epodoc varchar(20) DEFAULT (''),
   appln_nr_original varchar(100) DEFAULT (''),
   ipr_type char(2) DEFAULT (''),
   receiving_office char(2) DEFAULT (''),
