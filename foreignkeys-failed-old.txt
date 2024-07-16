@@ -1,0 +1,24 @@
+Executing: ALTER TABLE tls225_docdb_fam_cpc ADD FOREIGN KEY (docdb_family_id) REFERENCES tls201_appln(docdb_family_id);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls201_appln"
+	1.361577 seconds (1.67 M allocations: 107.649 MiB, 5.32% gc time, 69.55% compilation time)
+Executing: ALTER TABLE tls228_docdb_fam_citn ADD FOREIGN KEY (docdb_family_id) REFERENCES tls201_appln(docdb_family_id);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls201_appln"
+	0.000958 seconds (104 allocations: 6.945 KiB)
+Executing: ALTER TABLE tls228_docdb_fam_citn ADD FOREIGN KEY (cited_docdb_family_id) REFERENCES tls201_appln(docdb_family_id);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls201_appln"
+	0.000659 seconds (104 allocations: 6.945 KiB)
+Executing: ALTER TABLE tls229_appln_nace2 ADD FOREIGN KEY (nace2_code) REFERENCES tls902_ipc_nace2(nace2_code);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls902_ipc_nace2"
+	0.001420 seconds (104 allocations: 6.953 KiB)
+Executing: ALTER TABLE tls230_appln_techn_field ADD FOREIGN KEY (techn_field_nr) REFERENCES tls901_techn_field_ipc(techn_field_nr);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls901_techn_field_ipc"
+	0.185406 seconds (104 allocations: 6.961 KiB)
+Executing: ALTER TABLE tls231_inpadoc_legal_event ADD FOREIGN KEY (event_auth, event_code) REFERENCES tls803_legal_event_code(event_auth, event_code);
+[error | LibPQ]: ForeignKeyViolation: ERROR:  insert or update on table "tls231_inpadoc_legal_event" violates foreign key constraint "tls231_inpadoc_legal_event_event_auth_event_code_fkey"
+DETAIL:  Key (event_auth, event_code)=(SU, MM1K) is not present in table "tls803_legal_event_code".
+ 90.048223 seconds (19.87 k allocations: 1.327 MiB, 0.07% compilation time)
+Executing: ALTER TABLE tls901_techn_field_ipc ADD FOREIGN KEY (techn_field_nr) REFERENCES tls209_appln_ipc(techn_field_nr);
+[error | LibPQ]: UndefinedColumn: ERROR:  column "techn_field_nr" referenced in foreign key constraint does not exist
+	0.030368 seconds (19.88 k allocations: 1.326 MiB, 94.58% compilation time)
+Executing: ALTER TABLE tls904_nuts ADD FOREIGN KEY (nuts) REFERENCES tls206_person(nuts);
+[error | LibPQ]: InvalidForeignKey: ERROR:  there is no unique constraint matching given keys for referenced table "tls206_person"

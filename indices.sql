@@ -1,9 +1,11 @@
-CREATE INDEX ON tls201_appln (appln_filing_date);
-CREATE INDEX ON tls201_appln (appln_filing_year);
-CREATE INDEX ON tls201_appln (appln_auth, appln_nr, appln_kind);
-CREATE INDEX ON tls201_appln (granted);
-CREATE INDEX ON tls201_appln (docdb_family_id);
-CREATE INDEX ON tls201_appln (inpadoc_family_id);
+SET default_tablespace = patstat2023; -- Some indices were already setup
+-- 
+-- CREATE INDEX ON tls201_appln (appln_filing_date);
+-- CREATE INDEX ON tls201_appln (appln_filing_year);
+-- CREATE INDEX ON tls201_appln (appln_auth, appln_nr, appln_kind);
+-- CREATE INDEX ON tls201_appln (granted);
+-- CREATE INDEX ON tls201_appln (docdb_family_id);
+-- CREATE INDEX ON tls201_appln (inpadoc_family_id);
 --
 CREATE INDEX ON tls204_appln_prior (appln_id);
 CREATE INDEX ON tls204_appln_prior (prior_appln_id);
@@ -45,11 +47,11 @@ CREATE INDEX ON tls222_appln_jp_class (jp_class_symbol);
 CREATE INDEX ON tls223_appln_docus (appln_id);
 CREATE INDEX ON tls223_appln_docus (docus_class_symbol);
 --
-CREATE INDEX ON tls224_appln_cpc (appln_id);
-CREATE INDEX ON tls224_appln_cpc (cpc_class_symbol);
---
-CREATE INDEX ON tls225_docdb_fam_cpc (docdb_family_id);
-CREATE INDEX ON tls225_docdb_fam_cpc (cpc_class_symbol);
+-- CREATE INDEX ON tls224_appln_cpc (appln_id);
+-- CREATE INDEX ON tls224_appln_cpc (cpc_class_symbol);
+-- --
+-- CREATE INDEX ON tls225_docdb_fam_cpc (docdb_family_id);
+-- CREATE INDEX ON tls225_docdb_fam_cpc (cpc_class_symbol);
 --
 CREATE INDEX ON tls226_person_orig (person_id);
 --
